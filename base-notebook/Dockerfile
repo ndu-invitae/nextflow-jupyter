@@ -123,7 +123,7 @@ RUN set -x && \
     # Pin major.minor version of python
     mamba list python | grep '^python ' | tr -s ' ' | cut -d ' ' -f 1,2 >> "${CONDA_DIR}/conda-meta/pinned" && \
     jupyter notebook --generate-config && \ 
-    mamba install -y -c bioconda 'git' 'openjdk' 'nextflow' 'singularity' && \
+    mamba install -c bioconda 'git' 'openjdk' 'nextflow' 'singularity' -y && \
     mamba clean --all -f -y && \
     npm cache clean --force && \
     jupyter lab clean && \
